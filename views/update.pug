@@ -1,0 +1,22 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body   
+        h1 update Contact
+        p Update the contact's information below:   
+        form(method="POST", action=`/contacts/update/${contact.id}`)
+            input(type="hidden", name="id", value=contact.id)
+            label(for="firstname") First Name:
+            input(type="text", name="firstname", value=contact.properties.firstname || '', required)
+            br
+            label(for="pet_name") Pet Name:
+            input(type="text", name="pet_name", value=contact.properties.pet_name || '', required)
+            br
+            label(for="hobby") Hobby:
+            input(type="text", name="hobby", value=contact.properties.hobby || '', required)
+            br
+            input(type="hidden", name="email", value=contact.properties.email || '', required)
+            button(type="submit") Update Contact
