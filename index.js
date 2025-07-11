@@ -52,7 +52,6 @@ app.get("/contacts", async (req, res) => {
 });
 app.get("/contacts/update/:id", async (req, res) => {
   const id = req.params.id;
-  console.log("Fetching contact for update:", id);
 
   try {
     const url = `https://api.hubspot.com/crm/v3/objects/contacts/${id}?properties=pet_name,hobby,firstname,lastname,email,phone,website&archived=false`;
@@ -75,7 +74,6 @@ app.get("/contacts/update/:id", async (req, res) => {
 });
 
 app.post("/contacts/update/:id", async (req, res) => {
-  console.log(req.params.id);
   const id = req.params.id;
   const email = req.body.email;
   const updateContacts = `https://api.hubspot.com/crm/v3/objects/contacts/${email}?idProperty=email&archived=false`;
